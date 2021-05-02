@@ -1,14 +1,28 @@
 {
     "name": "project_2",
     "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
+    "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "",
+    "author": "Jorge Caridad",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.0.1",
+        "concurrently": "^6.0.2",
+        "ejs": "^2.5.7",
+        "express": "^4.16.2",
+        "express-session": "^1.17.1",
+        "method-override": "^2.3.10",
+        "mongoose": "^5.5.3",
         "node-fetch": "^2.6.1"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.generalassemb.ly/JorgeCaridad/Project_2.git"
+    },
+    "keywords": [
+        "project_2"
+    ],
+    "description": ""
 }

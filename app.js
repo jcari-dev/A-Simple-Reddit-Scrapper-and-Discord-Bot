@@ -4,15 +4,9 @@ const token = require('./config');
 const fetch = require("node-fetch");
 
 let memearr;
+let test;
+let link;
 
-function getQuote() {
-    return fetch("https://zenquotes.io/api/random")
-        .then(res => {
-            return res.json()
-        }).then(data => {
-            return data[0]["q"] + " -" + data[0]["a"]
-        })
-}
 
 let memepls = () => {
 
@@ -20,24 +14,32 @@ let memepls = () => {
         .then(res => {
             return res.json()
         }).then(data => {
-            memearr = data.preview[data.preview.length - 1]
-            return memearr;
+            if (data.nsfw === true) {
+                // test = (data.subreddit + ' from memes')
+                console.log(data.subreddit + ' I was here')
+                return memepls();
+            } else {
+                memearr = data.preview[data.preview.length - 1]
+                test = (data.subreddit + ' not memes')
+                return memearr;
+            }
         })
 
 }
 
 
 client.on("ready", () => {
+
     console.log(`Logged in as ${client.user.tag}!`)
+
 })
 
 client.on("message", msg => {
+
     if (msg.author.bot) return;
 
-    if (msg.content === "!inspire") {
-        getQuote().then(quote => msg.reply(quote))
-    }
-    if (msg.content.includes("zm")) {
+    if (msg.content === "!zm") {
+
         memepls().then(memearr => msg.reply(`${memearr}`));
 
     }
