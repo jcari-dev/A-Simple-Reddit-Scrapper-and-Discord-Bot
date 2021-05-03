@@ -4,9 +4,6 @@ const token = require('./config');
 const fetch = require("node-fetch");
 
 let memearr;
-let test;
-let link;
-
 
 let memepls = () => {
 
@@ -15,12 +12,9 @@ let memepls = () => {
             return res.json()
         }).then(data => {
             if (data.nsfw === true) {
-                // test = (data.subreddit + ' from memes')
-                console.log(data.subreddit + ' I was here')
                 return memepls();
             } else {
                 memearr = data.preview[data.preview.length - 1]
-                test = (data.subreddit + ' not memes')
                 return memearr;
             }
         })
