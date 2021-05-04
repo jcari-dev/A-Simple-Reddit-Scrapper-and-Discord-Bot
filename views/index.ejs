@@ -9,9 +9,21 @@
 </head>
 
 <body>
+    <a href="/new">New Test</a>
+    <% let parseme;%>
+        <% let memeimg; %>
+            <ul>
+                <% for (let i =0; i< memes.length; i++) { %>
+                    <li>
+                        <% parseme = memes[i].url + '.json' %>
+                            <% %>
+                                <%=parseme%>
 
-    <p>Hey</p>
+                    </li>
+                    <% } %>
 
+
+            </ul>
 </body>
 
 </html>

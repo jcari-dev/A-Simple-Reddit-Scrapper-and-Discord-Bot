@@ -21,6 +21,17 @@ let memepls = () => {
 
 }
 
+let memepls = () => {
+
+    return fetch("http://meme-api.herokuapp.com/gimme")
+        .then(res => {
+            return res.json()
+        }).then(data => {
+            data[0].children[0].data.thumbnail
+        })
+
+}
+
 
 client.on("ready", () => {
 
