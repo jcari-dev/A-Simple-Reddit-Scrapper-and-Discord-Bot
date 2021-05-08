@@ -5,25 +5,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Le Meme DB</title>
+    <script src="/js/logic.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/303372529077321739/839627142995378196/trollface_non-free.png">
 </head>
 
 <body>
-    <a href="/new">New Test</a>
-    <% let parseme;%>
-        <% let memeimg; %>
-            <ul>
-                <% for (let i =0; i< memes.length; i++) { %>
-                    <li>
-                        <% parseme = memes[i].url + '.json' %>
-                            <% %>
-                                <%=parseme%>
+    <a href="/new">New Meme</a> <br>
+    <a href="/newwholepage">New Whole Page</a> <br>
+    <a>Data will be shown beneath</a><br>
 
-                    </li>
-                    <% } %>
+    <a>There are currently <%= memes.length + wholepage.length %> entries in this database! </a>
+    <ul>
+        <% for (let i =0; i< memes.length; i++) { %>
+            <li>
+
+                <div class="border" class="container">
+
+                    Post Awards:
+                    <% for(j =0; j < memes[i].pawards.length; j++) { %>
+                        <img class="pawards" src="<%=memes[i].pawards[j]%>">
+
+                        <%=memes[i].pawardsc[j]%>
 
 
-            </ul>
+
+                            <% } %><br>
+                                <a href="/memes/<%=[i]%>"><img class="indeximg" src="<%=memes[i].url%>"></a><br>
+                                <a>
+                                            
+                                            Title: 
+                                            <%= memes[i].posttitle %> <br>
+                                            <% if (memes[i].subtextbody === ''){ %>
+                                                
+                                                <% memes[i].subtextbody = 'EMPTY' %>
+                                            <% } else  {} %>
+                                            Body Text: <%= memes[i].subtextbody %>
+                                        </a> <br> Author:
+                                <%=memes[i].title%> <br> Ups:
+                                    <%=memes[i].ups.toLocaleString()%><br> URL to Reddit: <a href="<%=memes[i].redditurl%>" target="_blank"> Link </a> <br>
+                                        <div class="border" class="rounded" class="container2">
+                                            Top Comment Awards:
+                                            <% for(let a =0; a < memes[i].tcawards.length; a++) { %>
+                                                <img class="pawards" src="<%=memes[i].tcawards[a]%>">
+
+                                                <%=memes[i].tcawardsc[a]%>
+
+                                                    <% } %><br>
+
+                                                        <b>Ups <%=memes[i].tcups.toLocaleString()%> Top Comment: </b><br>
+                                                        <i>
+                                                            <%=memes[i].tcbody%>
+                                                         </i><br>
+                                                        <a>by <%=memes[i].tcauthor%></a>
+
+                                                        <br><br>
+                                                        <form action="/memes/<%=memes[i].title%>?_method=DELETE" method="POST">
+                                                            <input type="submit" value="Delete" />
+                                                        </form>
+                                                        <a href="/memes/<%=[i]%>/edit%>"><button>Edit</button></a>
+                                                        <br><br>
+                                                        <a> Info as of: <%=memes[i].entrydate%></a>
+                                        </div>
+                </div><br><br>
+            </li>
+            <% } %>
+                <li>
+                    <% for( let x = 0; x < wholepage.length; x++) { %>
+                        <div class="border" class="container">
+                            Awards:
+                            <% for (let y =0; y < wholepage[x].ppawards.length; y++) { %>
+                                <% if (wholepage[x].ppawards[y] === []) { %>
+                                    Zero
+                                    <% } else { %>
+                                        <img class="pawards" src="<%=wholepage[x].ppawards[y].replace(/amp;/g, '')%>">
+                                        <% } %>
+
+                                            <% } %>
+
+                                                <% if(wholepage[x].pimage.includes("https://v.redd.it/")) { %>
+                                                    <iframe class="indeximg" src="<%=wholepage[x].pvideo%>"></iframe>
+
+                                                    <% }  else if (wholepage[x].pimage !== 'undefined') { %>
+                                                        <img class="indeximg" src="<%=wholepage[x].pimage%>">
+                                                        <% } %>
+                                                            <br> Title:
+                                                            <%= wholepage[x].pposttitle %><br> Text Body:
+                                                                <%= wholepage[x].psubtextbody %><br> Author:
+                                                                    <%= wholepage[x].pauthor %> | Up Votes:
+                                                                        <%= wholepage[x].pups %> <br> Subreddit:
+                                                                            <%= wholepage[x].psubreddit %> <br>Reddit URL:
+                                                                                <a href="<%= wholepage[x].permalink %>">Link</a>
+                                                                                <form action="/newwholepage/<%=wholepage[x].id%>?_method=DELETE" method="POST">
+                                                                                    <input type="submit" value="Delete" />
+                                                                                </form>
+                                                                                <a href="/newwholepage/<%=[x]%>/edit%>"><button>Edit</button></a><br>
+                                                                                <a> Info as of: <%=wholepage[x].pentrydate%></a>
+                        </div><br><br>
+
+                        <% } %>
+
+                </li>
+    </ul>
 </body>
 
 </html>

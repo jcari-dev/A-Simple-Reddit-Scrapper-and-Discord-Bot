@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a>New Page</a><br><br>
+    <form action="/newwholepage" method="POST">
+        <!-- Title: <input type="text" id="titlefetch" name="title" /> <br>  -->
+        Enter Page URL: <input type="text" id="wholepageurlfetch" name="url" /> <br>
+        <!-- <br> Up Votes: <input type="number" name="ups" /> -->
+        Enter Collection Name: <input type="text" name="collection"><br>
+        <label for="entries">Number of Posts:</label>
+
+        <select name="entries" id="entriesid">
+          <option value="25">25 (Default)</option>
+          <option value="50">50</option>
+          <option value="75">75</option>
+          <option value="100">100</option>
+        </select>
+
+        <input type="submit" name="" value="Push!" onclick="wholepagestore()">
+    </form>
+
+    <img class="rainbowfrog" src="https://i.ibb.co/R4DDBHz/Fb3411f6266e65f976d807cbc2e5e415667a95e9-00-2.gif">
+</body>
+
+</html>
