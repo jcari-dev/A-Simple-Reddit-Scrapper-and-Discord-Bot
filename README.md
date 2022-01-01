@@ -38,7 +38,6 @@ Project II used the following technologies and services in order to perform corr
 ![Image](https://i.ibb.co/dLszMqz/Screen-Shot-2021-05-11-at-11-02-40-PM.png)
 
 
-## Commit History
 
 ## Known Bugs
 
