@@ -57,10 +57,10 @@ app.delete('/newwholepage/:id', (req, res) => {
 })
 
 
-mongoose.connect('mongodb://localhost:27017/testdb', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connection.once('open', () => {
-    console.log('linked to mongo')
-})
+// mongoose.connect('mongodb://localhost:27017/testdb', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connection.once('open', () => {
+//     console.log('linked to mongo')
+// })
 
 
 
