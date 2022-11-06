@@ -1,6 +1,8 @@
 
 # A Simple Reddit Scrapper and Discord Bot | Project II |  by Jorge Caridad 
 
+This project will be cleaned up!
+
 
 
 ## Features
