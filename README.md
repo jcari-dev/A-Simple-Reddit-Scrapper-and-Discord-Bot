@@ -4,7 +4,6 @@
 This project will be cleaned up!
 
 
-
 ## Features
 
 - Single Addition of a Reddit Post.
